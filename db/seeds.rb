@@ -10,6 +10,36 @@ Item.destroy_all
 Order.destroy_all
 Merchant.destroy_all
 
+#users
+user = User.create(name: "Regular User",
+            street_address: "1765 Larimer St",
+            city: "Denver",
+            state: "CO",
+            zip: "80202",
+            email: "user@example.com",
+            password: "password",
+            password_confirmation: "password",
+            role: 0)
+
+merchant = User.create(name: "Merchant User",
+            street_address: "1765 Larimer St",
+            city: "Denver",
+            state: "CO",
+            zip: "80202",
+            email: "merchant@example.com",
+            password: "password",
+            password_confirmation: "password",
+            role: 1)
+
+admin = User.create(name: "Admin User",
+            street_address: "1765 Larimer St",
+            city: "Denver",
+            state: "CO",
+            zip: "80202",
+            email: "admin@example.com",
+            password: "password",
+            password_confirmation: "password",
+            role: 2)
 
 #merchants
 bike_shop = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
@@ -33,17 +63,28 @@ tire_6 = dog_shop.items.create(name: "Gatorskins", description: "They'll never p
 pull_toy_6 = bike_shop.items.create(name: "Pull Toy", description: "Great pull toy!", price: 10, image: "http://lovencaretoys.com/image/cache/dog/tug-toy-dog-pull-9010_2-800x800.jpg", inventory: 32)
 
 #orders & order items
-order_1 = Order.create(name: "Javi", address: "1111 Rails St.", city: "Denver", state: "CO", zip: "80201")
+order_1 = Order.create(name: "Javi", address: "1111 Rails St.", city: "Denver", state: "CO", zip: "80201", user_id: user.id)
 ItemOrder.create(order_id: order_1.id, item_id: tire_2.id, price: 1.99, quantity: 5004)
 ItemOrder.create(order_id: order_1.id, item_id: tire_3.id, price: 1.99, quantity: 5003)
 ItemOrder.create(order_id: order_1.id, item_id: tire_4.id, price: 1.99, quantity: 5002)
 ItemOrder.create(order_id: order_1.id, item_id: tire_5.id, price: 1.99, quantity: 5001)
 ItemOrder.create(order_id: order_1.id, item_id: tire_6.id, price: 1.99, quantity: 5000)
 ItemOrder.create(order_id: order_1.id, item_id: tire.id, price: 1.99, quantity: 200)
-ItemOrder.create(order_id: order_1.id, item_id: dog_bone.id, price: 1.99, quantity: 200)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy.id, price: 1.99, quantity: 200)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy_2.id, price: 1.99, quantity: 4)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy_3.id, price: 1.99, quantity: 3)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy_4.id, price: 1.99, quantity: 2)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy_5.id, price: 1.99, quantity: 1)
-ItemOrder.create(order_id: order_1.id, item_id: pull_toy_6.id, price: 1.99, quantity: 0)
+
+order_2 = Order.create(name: "Alex", address: "1111 Rails St.", city: "Denver", state: "CO", zip: "80201", user_id: user.id)
+ItemOrder.create(order_id: order_2.id, item_id: dog_bone.id, price: 1.99, quantity: 200)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy.id, price: 1.99, quantity: 200)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy_2.id, price: 1.99, quantity: 4)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy_3.id, price: 1.99, quantity: 3)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy_4.id, price: 1.99, quantity: 2)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy_5.id, price: 1.99, quantity: 1)
+ItemOrder.create(order_id: order_2.id, item_id: pull_toy_6.id, price: 1.99, quantity: 10)
+
+order_3 = Order.create(name: "Ana", address: "1111 Rails St.", city: "Denver", state: "CO", zip: "80201", user_id: user.id)
+ItemOrder.create(order_id: order_3.id, item_id: tire_6.id, price: 1.99, quantity: 5000)
+ItemOrder.create(order_id: order_3.id, item_id: pull_toy.id, price: 1.99, quantity: 200)
+ItemOrder.create(order_id: order_3.id, item_id: tire_6.id, price: 1.99, quantity: 5000)
+ItemOrder.create(order_id: order_3.id, item_id: pull_toy_3.id, price: 1.99, quantity: 3)
+ItemOrder.create(order_id: order_3.id, item_id: tire_6.id, price: 1.99, quantity: 5000)
+ItemOrder.create(order_id: order_3.id, item_id: pull_toy_5.id, price: 1.99, quantity: 1)
+ItemOrder.create(order_id: order_3.id, item_id: pull_toy_6.id, price: 1.99, quantity: 5)
