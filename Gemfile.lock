@@ -65,6 +65,8 @@ GEM
     crass (1.0.5)
     diff-lcs (1.3)
     docile (1.3.2)
+    emoji-rspec (1.0.1)
+      rspec-core (>= 2.10)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.11.3)
@@ -93,6 +95,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    nyan-cat-formatter (0.12.0)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     pg (1.1.4)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -130,6 +134,10 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
     rspec-core (3.9.0)
       rspec-support (~> 3.9.0)
     rspec-expectations (3.9.0)
@@ -199,9 +207,11 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+  emoji-rspec
   jbuilder (~> 2.5)
   launchy
   listen (>= 3.0.5, < 3.2)
+  nyan-cat-formatter
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.7)
