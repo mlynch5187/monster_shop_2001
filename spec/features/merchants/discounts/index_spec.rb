@@ -46,7 +46,7 @@ RSpec.describe "As a merchant employee, when I visit discounts index" do
     visit "/merchant"
   end
 
-  it "shows all discount names as links to discount showpage" do
+  xit "shows all discount names as links to discount showpage" do
 
       expect(page).to have_link("#{@discount_1.name}")
       expect(page).to have_link("#{@discount_2.name}")
