@@ -52,12 +52,14 @@ RSpec.describe "As a merchant employee, when I click delete on a discount showpa
     within("#discount-#{@discount_1.id}") do
       click_link "#{@discount_1.name}"
     end
-
-    it "Deletes the discount when link is clicked" do
-
-      click_link "Delete Discount"
-
-      expect(current_path).to eq("/merchant")
-      expect(page).to_not have_content(@discount_1.name)
-    end
   end
+
+  it "Deletes the discount when link is clicked" do
+
+    click_link "Delete Discount"
+
+    expect(current_path).to eq("/merchant")
+
+    expect(page).to have_content("#{@discount_1.name} has been deleted")
+  end
+end
