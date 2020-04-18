@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a merchant employee, when I visit a discount's showpage" do
+RSpec.describe "As a merchant employee, when I click edit on a discount showpage" do
   before(:each) do
     @bike_shop = Merchant.create(name: "Brian's Bike Shop",
                                  address: '123 Bike Rd.',
@@ -52,15 +52,15 @@ RSpec.describe "As a merchant employee, when I visit a discount's showpage" do
     within("#discount-#{@discount_1.id}") do
       click_link "#{@discount_1.name}"
     end
+
+    click_link "Edit Discount"
   end
 
-  it "shows a discount's name, percentage off, number of items required, and description" do
+  it "shows a form where I can edit a discount's attributes" do
 
-      expect(page).to have_content("#{@discount_1.name}")
-      expect(page).to have_content("#{@discount_1.percentage.to_i}")
-      expect(page).to have_content("#{@discount_1.bulk}")
-      expect(page).to have_content("#{@discount_1.description}")
-
-      expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
+    expect(find_field('Name').value).to eq "Buy Three, Get 10% Off"
+    expect(find_field('Percentage').value).to eq '0.1'
+    expect(find_field('Bulk').value).to eq '3'
+    expect(find_field('Description').value).to eq 'If you buy three of our items in one order, a 10% discount is applied'
   end
 end
