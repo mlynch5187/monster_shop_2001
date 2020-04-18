@@ -56,11 +56,25 @@ RSpec.describe "As a merchant employee, when I click edit on a discount showpage
     click_link "Edit Discount"
   end
 
-  it "shows a form where I can edit a discount's attributes" do
+  it "shows a prefilled form where I can edit a discount's attributes" do
 
     expect(find_field('Name').value).to eq "Buy Three, Get 10% Off"
     expect(find_field('Percentage').value).to eq '0.1'
     expect(find_field('Bulk').value).to eq '3'
     expect(find_field('Description').value).to eq 'If you buy three of our items in one order, a 10% discount is applied'
+  end
+
+  it "updates the discount's attributes when submitted" do
+
+    fill_in 'Name', with: "Buy Ten, Get 20% Off"
+    fill_in 'Percentage', with: "0.2"
+    fill_in 'Bulk', with: "10"
+    fill_in 'Description', with: "If you buy ten of our items in one order, a 20% discount is applied"
+
+    click_button "Update Discount"
+
+    expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
+    expect(page).to have_content("Buy Ten, Get 20% Off")    
+    expect(page).to have_content("If you buy ten of our items in one order, a 20% discount is applied")
   end
 end

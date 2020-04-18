@@ -1,4 +1,4 @@
-<h1>Edit <%=link_to @discount.name, "/items/#{@discount.id}" %></h1>
+<h1>Edit <%=link_to @discount.name, "merchant/discounts/#{@discount.id}" %></h1>
 
 <center>
   <%= form_tag "/merchant/discounts/#{@discount.id}", method: :patch  do %>
@@ -14,6 +14,6 @@
     <%= label_tag :description %>
     <%= text_field_tag :description, "#{@discount.description}" %>
 
-    <%= submit_tag 'Edit Discount' %>
+    <%= submit_tag 'Update Discount' %>
   <% end %>
 </center>

@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     post "/orders/:order_id", to: "orders#update"
     get "/discounts/:discount_id", to: "discounts#show"
     get "/discounts/:discount_id/edit", to: "discounts#edit"
+    patch "/discounts/:discount_id", to: "discounts#update"
     resources :items
   end
 
