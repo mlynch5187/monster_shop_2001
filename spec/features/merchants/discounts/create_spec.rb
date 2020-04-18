@@ -82,9 +82,7 @@ RSpec.describe "As a merchant employee, when I click 'create discount' on a disc
     fill_in 'Bulk', with: "10"
     fill_in 'Description', with: "If you buy ten of our items in one order, a 20% discount is applied"
 
-    click_button "Create Discount"
-
-    save_and_open_page
+    click_button "Create Discount"    
 
     expect(page).to have_content("Percentage can't be blank")
   end
