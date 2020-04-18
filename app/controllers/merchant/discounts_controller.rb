@@ -1,7 +1,23 @@
 class Merchant::DiscountsController < ApplicationController
 
+  def new; end
+
   def show
     @discount = Discount.find(params[:discount_id])
+  end
+
+  def create
+    # require "pry"; binding.pry
+    @merchant = current_user.merchant
+
+    discount = @merchant.discounts.create(discount_params)
+    if discount.save
+      redirect_to "/merchant"
+      flash[:success] = "#{discount.name} has been created!"
+    else
+      flash[:error] = discount.errors.full_messages.to_sentence
+      render :new
+    end
   end
 
   def edit

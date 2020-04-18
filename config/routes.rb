@@ -46,8 +46,10 @@ Rails.application.routes.draw do
 
   namespace :merchant do
     get "/", to: "dashboard#index"
+    post "/", to: "discounts#create"
     get "/orders/:order_id", to: "orders#show"
     post "/orders/:order_id", to: "orders#update"
+    get "/discounts", to: "discounts#new"
     get "/discounts/:discount_id", to: "discounts#show"
     get "/discounts/:discount_id/edit", to: "discounts#edit"
     patch "/discounts/:discount_id", to: "discounts#update"
