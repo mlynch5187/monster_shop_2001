@@ -32,10 +32,14 @@ RSpec.describe "As a merchant employee, when I visit discounts index" do
                             inventory: 12)
 
     @discount_1 = @bike_shop.discounts.create(name: "Buy Three, Get 10% Off",
-                                              percentage: 0.1)
+                                              percentage: 0.1,
+                                              bulk: 3,
+                                              description: "If you buy three of our items in one order, a 10% discount is applied")
 
     @discount_2 = @bike_shop.discounts.create(name: "Buy Five, Get 15% Off",
-                                              percentage: 0.15)
+                                              percentage: 0.15,
+                                              bulk: 5,
+                                              description: "If you buy five of our items in one order, a 15% discount is applied")
 
     visit "/login"
 
