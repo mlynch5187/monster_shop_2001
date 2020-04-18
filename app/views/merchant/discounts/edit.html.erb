@@ -4,16 +4,16 @@
   <%= form_tag "/merchant/discounts/#{@discount.id}", method: :patch  do %>
     <%= label_tag :name %>
     <%= text_field_tag :name, "#{@discount.name}"%>
-
+    <br/>
     <%= label_tag :percentage %>
     <%= text_field_tag :percentage, "#{@discount.percentage}" %>
-
+    <br/>
     <%= label_tag :bulk %>
     <%= text_field_tag :bulk, "#{@discount.bulk}" %>
-
+    <br/>
     <%= label_tag :description %>
     <%= text_field_tag :description, "#{@discount.description}" %>
-
+    <br/>
     <%= submit_tag 'Update Discount' %>
   <% end %>
 </center>
