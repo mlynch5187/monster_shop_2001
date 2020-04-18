@@ -1,0 +1,6 @@
+<h2>Available Discounts:</h2>
+<% @merchant.discounts.distinct.each do |discount| %>
+  <div id='discount-<%= discount.id %>'>
+    <p><%= link_to "#{discount.name}", "/merchant/discounts/#{discount.id}" %></p>
+  </div>
+<% end %>

@@ -34,8 +34,8 @@ RSpec.describe "As a merchant employee, when I visit discounts index" do
     @discount_1 = @bike_shop.discounts.create(name: "Buy Three, Get 10% Off",
                                               percentage: 0.1)
 
-    @discount_2 = @bike_shop.discounts.create(name: "Buy Three, Get 10% Off",
-                                              percentage: 0.1)
+    @discount_2 = @bike_shop.discounts.create(name: "Buy Five, Get 15% Off",
+                                              percentage: 0.15)
 
     visit "/login"
 
@@ -46,7 +46,9 @@ RSpec.describe "As a merchant employee, when I visit discounts index" do
     visit "/merchant"
   end
 
-  xit "shows all discount names as links to discount showpage" do
+  it "shows all discount names as links to discount showpage" do
+
+    save_and_open_page
 
       expect(page).to have_link("#{@discount_1.name}")
       expect(page).to have_link("#{@discount_2.name}")
