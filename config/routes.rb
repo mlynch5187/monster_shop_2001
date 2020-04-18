@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get "/", to: "dashboard#index"
     get "/orders/:order_id", to: "orders#show"
     post "/orders/:order_id", to: "orders#update"
+    get "/discounts/:discount_id", to: "discounts#show"
     resources :items
   end
 

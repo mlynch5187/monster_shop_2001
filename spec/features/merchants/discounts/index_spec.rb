@@ -48,9 +48,13 @@ RSpec.describe "As a merchant employee, when I visit discounts index" do
 
   it "shows all discount names as links to discount showpage" do
 
-    save_and_open_page
-
       expect(page).to have_link("#{@discount_1.name}")
       expect(page).to have_link("#{@discount_2.name}")
+
+      within("#discount-#{@discount_1.id}") do
+        click_link "#{@discount_1.name}"
+      end
+
+      expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
   end
 end
